@@ -16,14 +16,11 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button(action: {
-                //本机沙盒目录
-    //            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    //            let documentsDirectory = paths[0]
-    //
-    //            let filePath = URL(fileURLWithPath: "\(documentsDirectory)/example.mp3")
                 //bundle文件
                 let path = Bundle.main.path(forResource: "example.mp3", ofType:nil)!
                 let filePath = URL(fileURLWithPath: path)
+                print(path)
+                print(filePath)
                 
                 do {
                     self.player = try AVAudioPlayer(contentsOf: filePath)
